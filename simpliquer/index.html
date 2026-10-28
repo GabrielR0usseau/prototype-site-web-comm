@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S'impliquer et Bénévolat - Citoyens en action</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <!-- En-tête spécifique à la page -->
+        <section class="hero" style="padding: 6rem 5%; text-align: left; background: var(--primary);">
+            <div class="hero-content" style="margin: 0; max-width: 100%;">
+                <h1 style="font-size: 3rem;">S'impliquer</h1>
+                <p style="color: #d1fae5;">Il existe de multiples façons de participer à la vie de notre communauté. Découvrez comment vous pouvez faire une réelle différence.</p>
+            </div>
+        </section>
+
+        <!-- Section : Différentes façons de participer -->
+        <section>
+            <h2>Comment participer ?</h2>
+            <p>Que vous ayez quelques heures par mois ou plusieurs jours par semaine à offrir, votre aide est précieuse.</p>
+            
+            <div class="grid-articles">
+                <article class="carte">
+                    <h3 style="color: var(--primary);">Bénévolat d'événement</h3>
+                    <p>Aidez-nous lors de nos événements ponctuels, campagnes de sensibilisation et collectes de fonds. Idéal pour un engagement flexible.</p>
+                </article>
+                <article class="carte">
+                    <h3 style="color: var(--primary);">Partage de compétences</h3>
+                    <p>Mettez votre expertise (informatique, communication, menuiserie, etc.) au service des initiatives citoyennes et des organismes locaux.</p>
+                </article>
+                <article class="carte">
+                    <h3 style="color: var(--primary);">Accompagnement</h3>
+                    <p>Soutenez directement les membres de notre communauté, par exemple en participant à nos ateliers ou en aidant les nouveaux arrivants.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Section : Formulaire de bénévolat -->
+        <section class="bg-gris">
+            <h2>Devenir bénévole</h2>
+            <p>Prêt à passer à l'action ? Remplissez ce formulaire et notre équipe communiquera avec vous pour vous proposer des opportunités adaptées à votre profil.</p>
+            
+            <form id="form-benevole" style="margin-top: 2rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label for="nom" style="font-weight: 600; color: var(--text-heading);">Nom complet</label>
+                        <input type="text" id="nom" placeholder="Votre nom" required>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label for="courriel" style="font-weight: 600; color: var(--text-heading);">Adresse courriel</label>
+                        <input type="email" id="courriel" placeholder="votre@courriel.com" required>
+                    </div>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label for="interets" style="font-weight: 600; color: var(--text-heading);">Vos intérêts et disponibilités</label>
+                    <textarea id="interets" placeholder="Dites-nous ce que vous aimez faire et à quel moment vous êtes disponible..." rows="4" required style="resize: none;"></textarea>
+                </div>
+                
+                <button type="submit" class="btn-anime">Soumettre ma candidature</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../scripts/script.js"></script>
+    <script>
+        initLayout('..'); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faire un don - Citoyens en action</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <!-- Utilisation directe de la classe .hero uniforme à toutes les pages -->
+        <section class="hero page-don-section">
+            <div class="don-layout">
+                
+                <!-- Colonne Gauche : L'impact -->
+                <div class="impact-text">
+                    <h2>Devenez le moteur du changement.</h2>
+                    <p style="color: #d1fae5; font-size: 1.25rem;">
+                        Votre générosité nous permet de favoriser l'engagement citoyen et la solidarité en Montérégie.
+                    </p>
+                    
+                    <div class="impact-cards">
+                        <div class="impact-card-mini">
+                            <div class="impact-icon">🌱</div>
+                            <div>
+                                <h4 style="font-size: 1.1rem; margin-bottom: 0.2rem; color: white;">Soutien local</h4>
+                                <p style="margin: 0; font-size: 0.9rem; color: #d1fae5;">Finance l'organisation d'événements de rencontres citoyennes.</p>
+                            </div>
+                        </div>
+                        <div class="impact-card-mini">
+                            <div class="impact-icon">🤝</div>
+                            <div>
+                                <h4 style="font-size: 1.1rem; margin-bottom: 0.2rem; color: white;">Entraide</h4>
+                                <p style="margin: 0; font-size: 0.9rem; color: #d1fae5;">Aide à coordonner nos initiatives de solidarité communautaire.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne Droite : Le Formulaire Glassmorphism -->
+                <div class="glass-form-container">
+                    <h3 style="color: var(--text-heading); font-size: 1.75rem; margin-bottom: 0.5rem; text-align: center;">Faire un don en ligne sécurisé</h3>
+                    <p style="text-align: center; color: var(--text-main); margin-bottom: 2rem; font-size: 0.95rem;">Rapide, simple et 100% chiffré.</p>
+                    
+                    <form id="form-don-cool" style="max-width: 100%; margin: 0; padding: 0; background: transparent; box-shadow: none; border: none;">
+                        
+                        <label style="font-weight: 700; color: var(--text-heading); display: block; margin-bottom: 0.75rem;">1. Choisissez votre montant</label>
+                        <div class="amount-selector" id="amount-selector">
+                            <div class="amount-btn-cool">20 $</div>
+                            <div class="amount-btn-cool active">50 $</div>
+                            <div class="amount-btn-cool">100 $</div>
+                            <div class="input-group-cool custom-amount" style="margin-bottom: 0;">
+                                <input type="number" id="custom-amount-input" placeholder="Autre montant ($)" style="text-align: center; font-size: 1.1rem;">
+                            </div>
+                        </div>
+
+                        <label style="font-weight: 700; color: var(--text-heading); display: block; margin: 1.5rem 0 0.75rem;">2. Informations de paiement</label>
+                        
+                        <div class="input-group-cool">
+                            <input type="text" placeholder="Nom complet sur la carte" required>
+                        </div>
+
+                        <div class="input-group-cool">
+                            <input type="text" placeholder="Numéro de carte (0000 0000 0000 0000)" required>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="input-group-cool">
+                                <input type="text" placeholder="MM/AA" required>
+                            </div>
+                            <div class="input-group-cool">
+                                <input type="text" placeholder="CVC" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-submit-cool btn-anime">Faire un don de <span id="btn-amount">50</span> $</button>
+                        
+                        <p style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: #64748b; font-weight: 600;">
+                            Paiement sécurisé via Stripe (256-bit SSL)
+                        </p>
+                    </form>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../scripts/script.js"></script>
+    <script>
+        initLayout('..'); 
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const amountBtns = document.querySelectorAll('.amount-btn-cool');
+            const customInput = document.getElementById('custom-amount-input');
+            const btnAmountDisplay = document.getElementById('btn-amount');
+
+            amountBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    amountBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    customInput.value = '';
+                    btnAmountDisplay.innerText = btn.innerText.replace(' $', '');
+                });
+            });
+
+            customInput.addEventListener('input', (e) => {
+                amountBtns.forEach(b => b.classList.remove('active'));
+                btnAmountDisplay.innerText = e.target.value ? e.target.value : '0';
+            });
+
+            document.getElementById('form-don-cool').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Merci infiniment ! Votre don sécurisé a été traité.');
+            });
+        });
+    </script>
+</body>
+</html>

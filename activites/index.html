@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activités et Initiatives - Citoyens en action</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <!-- En-tête spécifique à la page -->
+        <section class="hero" style="padding: 6rem 5%; text-align: left; background: var(--primary);">
+            <div class="hero-content" style="margin: 0; max-width: 100%;">
+                <h1 style="font-size: 3rem;">Activités et Initiatives</h1>
+                <p style="color: #d1fae5;">Découvrez nos projets en cours, nos événements à venir et les dernières nouvelles de notre communauté.</p>
+            </div>
+        </section>
+
+        <!-- Section Calendrier -->
+        <section>
+            <h2>Activités à venir</h2>
+            <p>Participez à nos prochains événements de bénévolat, ateliers et rencontres citoyennes en Montérégie.</p>
+            
+            <div id="calendrier-container" class="box-mise-en-valeur">
+                <h3 style="margin-bottom: 1rem; color: var(--primary);">Hiver 2026</h3>
+                <p style="margin-bottom: 0;"><em>Rien pour le moment</em></p>
+            </div>
+        </section>
+
+        <!-- Section Initiatives -->
+        <section class="bg-gris">
+            <h2>Nos initiatives communautaires</h2>
+            <p>Un aperçu des projets réalisés grâce à l'implication de nos bénévoles et de nos partenaires locaux.</p>
+            
+            <div class="grid-articles">
+                <article class="carte">
+                    <h3>Jardin communautaire solidaire</h3>
+                    <p>Création d'un espace cultivé par et pour les citoyens du quartier, favorisant l'accès à des légumes frais et les rencontres intergénérationnelles.</p>
+                    <a href="" style="color: var(--primary); font-weight: 700; text-decoration: none; margin-top: auto;">En savoir plus →</a>
+                </article>
+                
+                <article class="carte">
+                    <h3>Campagne : Voisins bienveillants</h3>
+                    <p>Une série d'ateliers de sensibilisation à l'entraide de proximité pour briser l'isolement des personnes aînées durant la saison hivernale.</p>
+                    <a href="" style="color: var(--primary); font-weight: 700; text-decoration: none; margin-top: auto;">En savoir plus →</a>
+                </article>
+                
+                <article class="carte">
+                    <h3>Foire de l'engagement</h3>
+                    <p>Un événement annuel mettant en contact les nouveaux arrivants avec les différents organismes de la région qui recherchent des bénévoles.</p>
+                    <a href="" style="color: var(--primary); font-weight: 700; text-decoration: none; margin-top: auto;">En savoir plus →</a>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Section Articles et Nouvelles -->
+        <section>
+            <h2>Dernières nouvelles</h2>
+            <p>Restez informé de nos actions et des initiatives citoyennes en vous abonnant à notre infolettre mensuelle.</p>
+            
+            <form style="max-width: 500px; margin-top: 2rem; box-shadow: none; border: 2px solid #e2e8f0; background: transparent;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-heading);">S'abonner à l'infolettre</h3>
+                <input type="email" placeholder="Votre adresse courriel" required style="background: var(--bg-surface);">
+                <button type="submit" class="btn-submit-cool btn-anime">M'inscrire gratuitement</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../scripts/script.js"></script>
+    <script>
+        initLayout('..'); 
+    </script>
+</body>
+</html>
