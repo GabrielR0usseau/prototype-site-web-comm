@@ -18,9 +18,37 @@ function initLayout(basePath) {
 
     const footerHTML = `
         <footer>
-            <div class="footer-content">
-                <p>&copy; 2026 Citoyens en action. Tous droits réservés.</p>
-                <p><a href="">Connexion employés (Administration)</a></p>
+            <div class="footer-content" style="max-width: 1200px; margin: 0 auto; width: 100%;">
+                
+                <!-- Grille principale du footer -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: left; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    
+                    <!-- Colonne 1 : À propos -->
+                    <div>
+                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 0.8rem; font-weight: 800;">Citoyens en action</h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                            Favoriser l'engagement citoyen, l'entraide et la participation active à la vie communautaire en Montérégie.
+                        </p>
+                    </div>
+
+                    <!-- Colonne 2 : Liens rapides -->
+                    <div>
+                        <h4 style="color: white; font-size: 1.1rem; margin-bottom: 1rem;">Liens rapides</h4>
+                        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem; margin: 0;">
+                            <li><a href="${basePath}/" style="text-decoration: none;">Accueil</a></li>
+                            <li><a href="${basePath}/simpliquer/" style="text-decoration: none;">S'impliquer & Bénévolat</a></li>
+                            <li><a href="${basePath}/activites/" style="text-decoration: none;">Activités et initiatives</a></li>
+                            <li><a href="${basePath}/don/" style="text-decoration: none;">Faire un don</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                
+                <!-- Barre du bas : Copyright et accès employés -->
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.9rem;">
+                    <p style="margin: 0;">&copy; 2026 Citoyens en action. Tous droits réservés.</p>
+                </div>
+
             </div>
         </footer>
     `;
