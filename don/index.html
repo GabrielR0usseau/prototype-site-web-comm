@@ -3,113 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faire un don - Citoyens en action</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title data-i18n="titre.don">Faire un don - Citoyens en action</title>
+    <script src="../scripts/init.js"></script>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
     <div id="header-container"></div>
 
     <main>
-        <!-- Utilisation directe de la classe .hero uniforme à toutes les pages -->
         <section class="hero page-don-section">
             <div class="don-layout">
-                
-                <!-- Colonne Gauche : L'impact -->
-                <div class="impact-text">
-                    <h2>Devenez le moteur du changement.</h2>
-                    <p style="color: #d1fae5; font-size: 1.25rem;">
-                        Votre générosité nous permet de favoriser l'engagement citoyen et la solidarité en Montérégie.
-                    </p>
-                    
-                    <!-- Objectif de campagne (Barre plus longue, point ajusté et animation) -->
-                    <div class="campaign-tracker" style="display: flex; align-items: center; gap: 2.5rem; margin-top: 2.5rem; background: rgba(255, 255, 255, 0.12); padding: 2.5rem; border-radius: var(--radius-md); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
-                        
-                        <!-- Style de l'animation de la barre -->
-                        <style>
-                            @keyframes fillUp {
-                                from { height: 0%; }
-                                to { height: 65%; }
-                            }
-                            .animated-fill {
-                                animation: fillUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-                            }
-                        </style>
 
-                        <!-- Barre de progression verticale plus longue (240px) -->
-                        <div style="width: 24px; height: 240px; background: rgba(0, 0, 0, 0.18); border-radius: 12px; position: relative; flex-shrink: 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);">
-                            
-                            <!-- Remplissage (65%) avec animation -->
-                            <div class="animated-fill" style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(180deg, #f97316 0%, #ea580c 100%); border-radius: 12px; box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);">
+                <!-- Colonne gauche : l'impact et la progression -->
+                <div class="impact-text">
+                    <h2 data-i18n="don.titre">Devenez le moteur du changement.</h2>
+                    <p data-i18n="don.texte">Votre générosité nous permet de favoriser l'engagement citoyen et la solidarité en Montérégie.</p>
+
+                    <div class="campaign-tracker">
+                        <div class="barre-verticale">
+                            <div class="barre-verticale-remplissage" data-dons-barre-verticale></div>
+                        </div>
+                        <div class="tracker-stats">
+                            <div>
+                                <span class="etiquette" data-i18n="don.objectif">Objectif global</span>
+                                <h3 class="objectif" data-dons="objectif">50 000 $</h3>
+                            </div>
+                            <div class="separateur"></div>
+                            <div>
+                                <span class="etiquette" style="color:#e0bf98;" data-i18n="don.amasse">Montant amassé</span>
+                                <h4 class="amasse" data-dons="amasse">32 500 $</h4>
+                            </div>
+                            <div class="pourcentage">
+                                <span data-dons="pourcent">65 % atteint</span> · <span data-dons="donateurs">214 donateurs</span>
                             </div>
                         </div>
-                        
-                        <!-- Statistiques -->
-                        <div style="color: white; display: flex; flex-direction: column; gap: 1.5rem; flex-grow: 1;">
-                            
-                            <!-- Objectif global -->
-                            <div>
-                                <span style="font-size: 0.85rem; color: #d1fae5; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Objectif global</span>
-                                <h3 style="font-size: 2.2rem; margin: 0; line-height: 1.1; color: white;">50 000 $</h3>
-                            </div>
-                            
-                            <!-- Ligne de séparation -->
-                            <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.2);"></div>
-                            
-                            <!-- Montant amassé -->
-                            <div>
-                                <span style="font-size: 0.85rem; color: #fdba74; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Montant amassé</span>
-                                <h4 style="font-size: 2.8rem; margin: 0.25rem 0 0 0; color: #f97316; line-height: 1; font-weight: 800;">32 500 $</h4>
-                            </div>
-                            
+                    </div>
+
+                    <!-- Barre horizontale d'avancement -->
+                    <div class="don-progression-horizontale">
+                        <div class="barre" role="progressbar" aria-valuemin="0" aria-valuemax="100" data-i18n-aria="dons.aria">
+                            <div class="barre-remplissage" data-dons-barre></div>
                         </div>
+                        <div class="barre-jalons">
+                            <span data-dons="jalon-0">0 $</span>
+                            <span data-dons="jalon-50">25 000 $</span>
+                            <span data-dons="jalon-100">50 000 $</span>
+                        </div>
+                        <p class="pourcentage" style="margin-top:0.75rem; color: var(--hero-text); font-weight:700;" data-dons="reste">Encore 17 500 $ à amasser</p>
                     </div>
                 </div>
 
-                <!-- Colonne Droite : Le Formulaire Glassmorphism -->
+                <!-- Colonne droite : formulaire de don -->
                 <div class="glass-form-container">
-                    <h3 style="color: var(--text-heading); font-size: 1.75rem; margin-bottom: 0.5rem; text-align: center;">Faire un don en ligne sécurisé</h3>
-                    <p style="text-align: center; color: var(--text-main); margin-bottom: 2rem; font-size: 0.95rem;">Rapide, simple et 100% chiffré.</p>
-                    
-                    <form id="form-don-cool" style="max-width: 100%; margin: 0; padding: 0; background: transparent; box-shadow: none; border: none;">
-                        
-                        <label style="font-weight: 700; color: var(--text-heading); display: block; margin-bottom: 0.75rem;">1. Choisissez votre montant</label>
+                    <h3 data-i18n="don.form_titre">Faire un don en ligne</h3>
+                    <p class="sous-titre" data-i18n="don.form_texte">Rapide, simple et sécurisé.</p>
+                    <div class="note-demo" data-i18n="don.demo">⚠️ Mode démonstration : aucun paiement réel n'est effectué.</div>
+
+                    <form id="form-don-cool" class="form-nu" novalidate>
+                        <label class="etape" data-i18n="don.etape1">1. Choisissez votre montant</label>
                         <div class="amount-selector" id="amount-selector">
-                            <div class="amount-btn-cool">20 $</div>
-                            <div class="amount-btn-cool active">50 $</div>
-                            <div class="amount-btn-cool">100 $</div>
+                            <button type="button" class="amount-btn-cool" data-montant="20">20 $</button>
+                            <button type="button" class="amount-btn-cool active" data-montant="50">50 $</button>
+                            <button type="button" class="amount-btn-cool" data-montant="100">100 $</button>
                             <div class="input-group-cool custom-amount" style="margin-bottom: 0;">
-                                <input type="number" id="custom-amount-input" placeholder="Autre montant ($)" style="text-align: center; font-size: 1.1rem;">
+                                <input type="number" min="1" id="custom-amount-input" placeholder="Autre montant ($)" data-i18n-ph="don.autre_montant" style="text-align: center; font-size: 1.1rem;">
                             </div>
                         </div>
 
-                        <label style="font-weight: 700; color: var(--text-heading); display: block; margin: 1.5rem 0 0.75rem;">2. Informations de paiement</label>
-                        
-                        <div class="input-group-cool">
-                            <input type="text" placeholder="Nom complet sur la carte" required>
+                        <label class="etape" data-i18n="don.etape2">2. Choisissez votre mode de paiement</label>
+                        <div class="onglets" role="tablist">
+                            <button type="button" class="onglet active" data-cible="paiement-carte" data-mode="carte" role="tab" aria-selected="true">💳 <span data-i18n="don.mode_carte">Carte de crédit</span></button>
+                            <button type="button" class="onglet" data-cible="paiement-paypal" data-mode="paypal" role="tab" aria-selected="false">🅿️ PayPal</button>
+                            <button type="button" class="onglet" data-cible="paiement-cheque" data-mode="cheque" role="tab" aria-selected="false">🧾 <span data-i18n="don.mode_cheque">Chèque</span></button>
                         </div>
 
-                        <div class="input-group-cool">
-                            <input type="text" placeholder="Numéro de carte (0000 0000 0000 0000)" required>
-                        </div>
-                        
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <!-- Carte de crédit -->
+                        <div class="panneau active" id="paiement-carte" role="tabpanel">
+                            <div class="cartes-acceptees"><span>VISA</span><span>Mastercard</span><span>AMEX</span></div>
                             <div class="input-group-cool">
-                                <input type="text" placeholder="MM/AA" required>
+                                <input type="text" data-requis="carte" autocomplete="off" placeholder="Nom complet sur la carte" data-i18n-ph="don.nom_carte">
                             </div>
                             <div class="input-group-cool">
-                                <input type="text" placeholder="CVC" required>
+                                <input type="text" id="numero-carte" data-requis="carte" inputmode="numeric" maxlength="19" autocomplete="off" placeholder="Numéro de carte (0000 0000 0000 0000)" data-i18n-ph="don.numero_carte">
+                            </div>
+                            <div class="grille-2">
+                                <div class="input-group-cool">
+                                    <input type="text" id="expiration-carte" data-requis="carte" maxlength="5" autocomplete="off" placeholder="MM/AA" data-i18n-ph="don.expiration">
+                                </div>
+                                <div class="input-group-cool">
+                                    <input type="text" data-requis="carte" maxlength="4" inputmode="numeric" autocomplete="off" placeholder="CVC">
+                                </div>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn-submit-cool btn-anime">Faire un don de <span id="btn-amount">50</span> $</button>
-                        
-                        <p style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: #64748b; font-weight: 600;">
-                            Paiement sécurisé via Stripe (256-bit SSL)
-                        </p>
+                        <!-- PayPal -->
+                        <div class="panneau" id="paiement-paypal" role="tabpanel">
+                            <div class="paypal-box">
+                                <div class="paypal-logo"><span class="pp1">Pay</span><span class="pp2">Pal</span></div>
+                                <p style="font-size: 0.95rem;" data-i18n="don.paypal_texte">Vous serez redirigé vers PayPal pour vous connecter et confirmer votre don en toute sécurité.</p>
+                                <div class="input-group-cool" style="margin-bottom:0;">
+                                    <input type="email" data-requis="paypal" placeholder="Courriel associé à votre compte PayPal" data-i18n-ph="don.paypal_courriel">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chèque -->
+                        <div class="panneau" id="paiement-cheque" role="tabpanel">
+                            <div class="cheque-box">
+                                <strong data-i18n="don.cheque_titre">Faire un don par chèque</strong>
+                                <p style="font-size: 0.95rem; margin: 0.5rem 0 0;" data-i18n="don.cheque_ordre">Libellez votre chèque à l'ordre de « Citoyens en action » et postez-le à :</p>
+                                <address>Citoyens en action<br>945 Ch. de Chambly<br>Longueuil (Québec) J4H 4A9</address>
+                                <ol>
+                                    <li data-i18n="don.cheque_etape1">Inscrivez vos coordonnées ci-dessous pour recevoir votre reçu fiscal.</li>
+                                    <li data-i18n="don.cheque_etape2">Indiquez votre numéro de promesse au verso du chèque.</li>
+                                    <li data-i18n="don.cheque_etape3">Nous confirmons la réception par courriel sous 10 jours ouvrables.</li>
+                                </ol>
+                            </div>
+                            <div class="grille-2">
+                                <div class="input-group-cool">
+                                    <input type="text" data-requis="cheque" placeholder="Nom complet" data-i18n-ph="champ.nom">
+                                </div>
+                                <div class="input-group-cool">
+                                    <input type="email" data-requis="cheque" placeholder="Adresse courriel" data-i18n-ph="champ.courriel">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-submit-cool btn-anime"><span id="btn-libelle" data-i18n="don.btn_carte">Faire un don de</span> <span id="btn-amount">50</span> $</button>
+
+                        <p class="securite" id="texte-securite" data-i18n="don.securite_carte">🔒 Paiement par carte chiffré (SSL 256 bits)</p>
                     </form>
                 </div>
-                
+
             </div>
         </section>
     </main>
@@ -118,30 +143,74 @@
 
     <script src="../scripts/script.js"></script>
     <script>
-        initLayout('..'); 
+        initLayout('..');
 
         document.addEventListener('DOMContentLoaded', () => {
             const amountBtns = document.querySelectorAll('.amount-btn-cool');
             const customInput = document.getElementById('custom-amount-input');
             const btnAmountDisplay = document.getElementById('btn-amount');
+            const libelle = document.getElementById('btn-libelle');
+            const securite = document.getElementById('texte-securite');
+            const form = document.getElementById('form-don-cool');
+            let montant = 50;
+            let mode = 'carte';
 
             amountBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     amountBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     customInput.value = '';
-                    btnAmountDisplay.innerText = btn.innerText.replace(' $', '');
+                    montant = Number(btn.dataset.montant);
+                    btnAmountDisplay.textContent = montant;
                 });
             });
 
-            customInput.addEventListener('input', (e) => {
+            customInput.addEventListener('input', e => {
                 amountBtns.forEach(b => b.classList.remove('active'));
-                btnAmountDisplay.innerText = e.target.value ? e.target.value : '0';
+                montant = Math.max(0, Number(e.target.value) || 0);
+                btnAmountDisplay.textContent = montant;
             });
 
-            document.getElementById('form-don-cool').addEventListener('submit', (e) => {
+            // Changement du mode de paiement : libellés du bouton et du message de sécurité
+            const majLibelles = () => {
+                libelle.dataset.i18n = 'don.btn_' + mode;
+                securite.dataset.i18n = 'don.securite_' + mode;
+                libelle.textContent = t(libelle.dataset.i18n);
+                securite.textContent = t(securite.dataset.i18n);
+            };
+            document.querySelectorAll('.onglet[data-mode]').forEach(o => {
+                o.addEventListener('click', () => { mode = o.dataset.mode; majLibelles(); });
+            });
+
+            // Formatage du numéro de carte et de la date d'expiration
+            document.getElementById('numero-carte').addEventListener('input', e => {
+                e.target.value = e.target.value.replace(/\D/g, '').slice(0, 16).replace(/(.{4})(?=.)/g, '$1 ');
+            });
+            document.getElementById('expiration-carte').addEventListener('input', e => {
+                const v = e.target.value.replace(/\D/g, '').slice(0, 4);
+                e.target.value = v.length > 2 ? v.slice(0, 2) + '/' + v.slice(2) : v;
+            });
+
+            form.addEventListener('submit', e => {
                 e.preventDefault();
-                alert('Merci infiniment ! Votre don sécurisé a été traité.');
+                if (!montant || montant <= 0) {
+                    notifier(t('don.erreur_montant'));
+                    return;
+                }
+                const champs = form.querySelectorAll(`[data-requis="${mode}"]`);
+                const vide = Array.from(champs).find(c => !c.value.trim() || !c.checkValidity());
+                if (vide) {
+                    vide.focus();
+                    notifier(t('don.erreur_champs'));
+                    return;
+                }
+                if (mode === 'cheque') {
+                    notifier(t('don.merci_cheque', { montant: formatArgent(montant) }));
+                } else {
+                    ajouterDon(montant);
+                    notifier(t(mode === 'paypal' ? 'don.merci_paypal' : 'don.merci_carte', { montant: formatArgent(montant) }));
+                }
+                form.querySelectorAll('input[data-requis]').forEach(c => { c.value = ''; });
             });
         });
     </script>

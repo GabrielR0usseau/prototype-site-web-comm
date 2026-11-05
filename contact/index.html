@@ -3,82 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Citoyens en action</title>
+    <title data-i18n="titre.contact">Contact - Citoyens en action</title>
+    <script src="../scripts/init.js"></script>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
     <div id="header-container"></div>
 
     <main>
-        <!-- En-tête spécifique à la page -->
-        <section class="hero" style="padding: 6rem 5%; text-align: left; background: var(--primary);">
-            <div class="hero-content" style="margin: 0; max-width: 100%;">
-                <h1 style="font-size: 3rem;">Nous joindre</h1>
-                <p style="color: #d1fae5;">Vous avez des questions, des suggestions ou vous souhaitez simplement échanger avec notre équipe ? N'hésitez pas à nous contacter.</p>
+        <section class="hero hero-page">
+            <div class="hero-content">
+                <h1 data-i18n="contact.hero_titre">Nous joindre</h1>
+                <p data-i18n="contact.hero_texte">Vous avez des questions, des suggestions ou vous souhaitez simplement échanger avec notre équipe ? N'hésitez pas à nous contacter.</p>
             </div>
         </section>
 
-        <!-- Section Contact avec Grille -->
         <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem; align-items: start;">
-            
-            <!-- Informations de contact et carte -->
+
+            <!-- Coordonnées et carte -->
             <div>
-                <h2>Nos coordonnées</h2>
-                <p>Passez nous voir à nos bureaux ou écrivez-nous. Notre équipe se fera un plaisir de vous répondre.</p>
-                
+                <h2 data-i18n="contact.coord_titre">Nos coordonnées</h2>
+                <p data-i18n="contact.coord_texte">Passez nous voir à nos bureaux ou écrivez-nous. Notre équipe se fera un plaisir de vous répondre.</p>
+
                 <div class="carte" style="margin-bottom: 2rem; padding: 2rem;">
-                    <h3 style="font-size: 1.25rem; color: var(--primary); margin-bottom: 0.5rem;">Adresse de nos locaux</h3>
+                    <h3 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;" data-i18n="contact.adresse">Adresse de nos locaux</h3>
                     <p style="margin-bottom: 1.5rem; font-weight: 500; color: var(--text-heading);">
                         945 Ch. de Chambly<br>
                         Longueuil, QC J4H 4A9
                     </p>
 
-                    <h3 style="font-size: 1.25rem; color: var(--primary); margin-bottom: 0.5rem;">Heures d'ouverture</h3>
+                    <h3 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;" data-i18n="contact.heures">Heures d'ouverture</h3>
                     <ul style="list-style: none; color: var(--text-heading); font-weight: 500; margin-bottom: 0;">
-                        <li style="margin-bottom: 0.5rem;">Lundi au vendredi : 9h à 17h</li>
-                        <li>Samedi : 10h à 14h</li>
+                        <li style="margin-bottom: 0.5rem;" data-i18n="contact.heures_semaine">Lundi au vendredi : 9 h à 17 h</li>
+                        <li data-i18n="contact.heures_samedi">Samedi : 10 h à 14 h</li>
                     </ul>
                 </div>
 
-                <!-- Plan d'accès interactif -->
-                <div class="box-mise-en-valeur" style="padding: 1rem; background-color: #e2e8f0; border: none;">
-                    <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Plan d'accès</h3>
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.342131976077!2d-73.48834928424915!3d45.53381667910185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc9056637b819f5%3A0xc3cfc9eb482a52!2s945%20Ch.%20de%20Chambly%2C%20Longueuil%2C%20QC%20J4H%204A9!5e0!3m2!1sfr!2sca!4v1700000000000!5m2!1sfr!2sca" 
-                        width="100%" 
-                        height="300" 
-                        style="border:0; border-radius: var(--radius-sm);" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
+                <div class="box-mise-en-valeur" style="padding: 1rem; background-color: var(--bg-alt); border: none;">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.2rem;" data-i18n="contact.plan">Plan d'accès</h3>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.342131976077!2d-73.48834928424915!3d45.53381667910185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc9056637b819f5%3A0xc3cfc9eb482a52!2s945%20Ch.%20de%20Chambly%2C%20Longueuil%2C%20QC%20J4H%204A9!5e0!3m2!1sfr!2sca!4v1700000000000!5m2!1sfr!2sca"
+                        width="100%"
+                        height="300"
+                        style="border:0; border-radius: var(--radius-sm);"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Google Maps">
                     </iframe>
                 </div>
             </div>
 
-            <!-- Formulaire de contact -->
+            <!-- Formulaires et sondages -->
             <div>
-                <h2>Envoyez-nous un message</h2>
-                <p>Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
-                
-                <form id="form-contact" style="max-width: 100%; margin: 0;">
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <input type="text" id="nom" placeholder="Nom complet" required>
-                    </div>
+                <h2 data-i18n="contact.form_titre">Formulaires et sondages</h2>
+                <p data-i18n="contact.form_texte">Écrivez-nous, faites une demande ou donnez-nous votre avis : chaque réponse nous aide à mieux servir la communauté.</p>
 
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <input type="email" id="courriel" placeholder="Adresse courriel" required>
-                    </div>
+                <div class="onglets" role="tablist">
+                    <button type="button" class="onglet active" data-cible="panneau-message" role="tab" aria-selected="true">✉️ <span data-i18n="contact.onglet_message">Message</span></button>
+                    <button type="button" class="onglet" data-cible="panneau-demande" role="tab" aria-selected="false">📋 <span data-i18n="contact.onglet_demande">Demande</span></button>
+                    <button type="button" class="onglet" data-cible="panneau-satisfaction" role="tab" aria-selected="false">⭐ <span data-i18n="contact.onglet_satisfaction">Satisfaction</span></button>
+                    <button type="button" class="onglet" data-cible="panneau-eclair" role="tab" aria-selected="false">📊 <span data-i18n="contact.onglet_eclair">Sondage éclair</span></button>
+                </div>
 
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <input type="text" id="sujet" placeholder="Sujet du message" required>
-                    </div>
+                <!-- 1. Message -->
+                <div class="panneau active" id="panneau-message" role="tabpanel">
+                    <form id="form-contact" style="max-width: 100%; margin: 0;" data-toast="toast.contact" data-enregistrer="messages">
+                        <input type="text" name="nom" placeholder="Nom complet" data-i18n-ph="champ.nom" required>
+                        <input type="email" name="courriel" placeholder="Adresse courriel" data-i18n-ph="champ.courriel" required>
+                        <input type="text" name="sujet" placeholder="Sujet du message" data-i18n-ph="contact.sujet" required>
+                        <textarea name="message" rows="6" placeholder="Votre message" data-i18n-ph="contact.message" required style="resize: none;"></textarea>
+                        <button type="submit" class="btn-anime" data-i18n="contact.btn_message">Envoyer le message</button>
+                    </form>
+                </div>
 
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <textarea id="message" rows="6" placeholder="Votre message" required style="resize: none;"></textarea>
-                    </div>
+                <!-- 2. Formulaire de demande -->
+                <div class="panneau" id="panneau-demande" role="tabpanel">
+                    <form id="form-demande" style="max-width: 100%; margin: 0;" data-toast="toast.demande" data-enregistrer="demandes">
+                        <label class="champ"><span data-i18n="contact.type_demande">Type de demande</span>
+                            <select name="type" required>
+                                <option value="" data-i18n="contact.type_choisir">— Choisir —</option>
+                                <option value="partenariat" data-i18n="contact.type_partenariat">Devenir partenaire</option>
+                                <option value="atelier" data-i18n="contact.type_atelier">Réserver un atelier pour mon groupe</option>
+                                <option value="aide" data-i18n="contact.type_aide">Demande d'aide ou de référence</option>
+                                <option value="medias" data-i18n="contact.type_medias">Demande des médias</option>
+                            </select>
+                        </label>
+                        <div class="grille-2">
+                            <input type="text" name="nom" placeholder="Nom complet" data-i18n-ph="champ.nom" required>
+                            <input type="text" name="organisation" placeholder="Organisation (facultatif)" data-i18n-ph="contact.organisation">
+                        </div>
+                        <div class="grille-2">
+                            <input type="email" name="courriel" placeholder="Adresse courriel" data-i18n-ph="champ.courriel" required>
+                            <input type="tel" name="telephone" placeholder="Téléphone" data-i18n-ph="champ.telephone">
+                        </div>
+                        <label class="champ"><span data-i18n="contact.date_souhaitee">Date souhaitée (facultatif)</span>
+                            <input type="date" name="date">
+                        </label>
+                        <textarea name="details" rows="4" placeholder="Décrivez votre demande" data-i18n-ph="contact.details" required style="resize: none;"></textarea>
+                        <label class="choix"><input type="checkbox" name="consentement" value="oui" required> <span data-i18n="contact.consentement">J'accepte que mes informations soient utilisées pour traiter ma demande.</span></label>
+                        <button type="submit" class="btn-anime" data-i18n="contact.btn_demande">Envoyer la demande</button>
+                    </form>
+                </div>
 
-                    <button type="submit" class="btn-anime">Envoyer le message</button>
-                </form>
+                <!-- 3. Sondage de satisfaction -->
+                <div class="panneau" id="panneau-satisfaction" role="tabpanel">
+                    <form id="form-satisfaction" style="max-width: 100%; margin: 0;" data-toast="toast.satisfaction" data-enregistrer="satisfaction">
+                        <fieldset>
+                            <legend data-i18n="contact.q_note">Comment évaluez-vous votre expérience avec notre organisme ?</legend>
+                            <div class="etoiles">
+                                <input type="radio" id="note5" name="note" value="5" required><label for="note5" title="5">★</label>
+                                <input type="radio" id="note4" name="note" value="4"><label for="note4" title="4">★</label>
+                                <input type="radio" id="note3" name="note" value="3"><label for="note3" title="3">★</label>
+                                <input type="radio" id="note2" name="note" value="2"><label for="note2" title="2">★</label>
+                                <input type="radio" id="note1" name="note" value="1"><label for="note1" title="1">★</label>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend data-i18n="contact.q_profil">Vous êtes…</legend>
+                            <div class="choix-ligne">
+                                <label class="choix"><input type="radio" name="profil" value="benevole" required> <span data-i18n="contact.profil_benevole">Bénévole</span></label>
+                                <label class="choix"><input type="radio" name="profil" value="participant"> <span data-i18n="contact.profil_participant">Participant·e</span></label>
+                                <label class="choix"><input type="radio" name="profil" value="donateur"> <span data-i18n="contact.profil_donateur">Donateur·trice</span></label>
+                                <label class="choix"><input type="radio" name="profil" value="partenaire"> <span data-i18n="contact.profil_partenaire">Partenaire</span></label>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend data-i18n="contact.q_aspects">Qu'avez-vous le plus apprécié ? (plusieurs choix possibles)</legend>
+                            <div class="choix-ligne">
+                                <label class="choix"><input type="checkbox" name="aspects" value="accueil"> <span data-i18n="contact.aspect_accueil">L'accueil</span></label>
+                                <label class="choix"><input type="checkbox" name="aspects" value="activites"> <span data-i18n="contact.aspect_activites">Les activités</span></label>
+                                <label class="choix"><input type="checkbox" name="aspects" value="communication"> <span data-i18n="contact.aspect_communication">La communication</span></label>
+                                <label class="choix"><input type="checkbox" name="aspects" value="impact"> <span data-i18n="contact.aspect_impact">L'impact dans la communauté</span></label>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend data-i18n="contact.q_recommander">Recommanderiez-vous Citoyens en action à un proche ?</legend>
+                            <div class="choix-ligne">
+                                <label class="choix"><input type="radio" name="recommande" value="oui" required> <span data-i18n="commun.oui">Oui</span></label>
+                                <label class="choix"><input type="radio" name="recommande" value="peut-etre"> <span data-i18n="commun.peut_etre">Peut-être</span></label>
+                                <label class="choix"><input type="radio" name="recommande" value="non"> <span data-i18n="commun.non">Non</span></label>
+                            </div>
+                        </fieldset>
+                        <textarea name="commentaire" rows="3" placeholder="Un commentaire ou une suggestion ?" data-i18n-ph="contact.commentaire" style="resize: none;"></textarea>
+                        <button type="submit" class="btn-anime" data-i18n="contact.btn_satisfaction">Envoyer mes réponses</button>
+                    </form>
+                </div>
+
+                <!-- 4. Sondage éclair -->
+                <div class="panneau" id="panneau-eclair" role="tabpanel">
+                    <form id="form-sondage-eclair" style="max-width: 100%; margin: 0;">
+                        <fieldset>
+                            <legend data-i18n="contact.q_eclair">Quelle nouvelle activité aimeriez-vous voir en 2027 ?</legend>
+                            <label class="choix"><input type="radio" name="activite" value="jardin" required> <span data-i18n="contact.choix_jardin">Un deuxième jardin communautaire</span></label>
+                            <label class="choix"><input type="radio" name="activite" value="ateliers"> <span data-i18n="contact.choix_ateliers">Des ateliers de francisation</span></label>
+                            <label class="choix"><input type="radio" name="activite" value="sport"> <span data-i18n="contact.choix_sport">Une ligue sportive de quartier</span></label>
+                            <label class="choix"><input type="radio" name="activite" value="culture"> <span data-i18n="contact.choix_culture">Des soirées culturelles du monde</span></label>
+                            <label class="choix"><input type="radio" name="activite" value="aines"> <span data-i18n="contact.choix_aines">Un programme de jumelage avec les aînés</span></label>
+                        </fieldset>
+                        <button type="submit" class="btn-anime" data-i18n="contact.btn_voter">Voter</button>
+                        <div>
+                            <strong data-i18n="contact.resultats">Résultats en direct</strong>
+                            <div class="resultats" id="resultats-sondage"></div>
+                        </div>
+                    </form>
+                </div>
             </div>
 
         </section>
@@ -88,7 +177,7 @@
 
     <script src="../scripts/script.js"></script>
     <script>
-        initLayout('..'); 
+        initLayout('..');
     </script>
 </body>
 </html>

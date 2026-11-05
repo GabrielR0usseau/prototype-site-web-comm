@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title data-i18n="titre.admin">Espace employés - Citoyens en action</title>
+    <script src="../scripts/init.js"></script>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section class="hero hero-page">
+            <div class="hero-content">
+                <h1 data-i18n="admin.titre">Espace employés</h1>
+                <p data-i18n="admin.texte">Gestion du calendrier, du contenu, des témoignages, des réponses aux sondages ainsi que des rôles et permissions de l'équipe.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="admin-wrap" id="admin-app"></div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../scripts/script.js"></script>
+    <script src="./admin.js"></script>
+    <script>
+        initLayout('..');
+    </script>
+</body>
+</html>
