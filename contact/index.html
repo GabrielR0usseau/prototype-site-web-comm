@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
+    <a class="skip-link" href="#contenu-principal" data-i18n="nav.skip">Aller au contenu principal</a>
     <div id="header-container"></div>
 
-    <main>
+    <main id="contenu-principal" tabindex="-1">
         <section class="hero hero-page">
             <div class="hero-content">
                 <h1 data-i18n="contact.hero_titre">Nous joindre</h1>
@@ -43,27 +44,27 @@
                     <h3 style="margin-bottom: 1rem; font-size: 1.2rem;" data-i18n="contact.plan">Plan d'accès</h3>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.342131976077!2d-73.48834928424915!3d45.53381667910185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc9056637b819f5%3A0xc3cfc9eb482a52!2s945%20Ch.%20de%20Chambly%2C%20Longueuil%2C%20QC%20J4H%204A9!5e0!3m2!1sfr!2sca!4v1700000000000!5m2!1sfr!2sca"
+                        title="Carte pour trouver nos locaux" data-i18n-aria="contact.map_title"
                         width="100%"
                         height="300"
                         style="border:0; border-radius: var(--radius-sm);"
                         allowfullscreen=""
                         loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Google Maps">
+                        referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
             </div>
 
             <!-- Formulaires et sondages -->
             <div>
-                <h2 data-i18n="contact.form_titre">Formulaires et sondages</h2>
+                <h2 id="titre-formulaires" data-i18n="contact.form_titre">Formulaires et sondages</h2>
                 <p data-i18n="contact.form_texte">Écrivez-nous, faites une demande ou donnez-nous votre avis : chaque réponse nous aide à mieux servir la communauté.</p>
 
-                <div class="onglets" role="tablist">
-                    <button type="button" class="onglet active" data-cible="panneau-message" role="tab" aria-selected="true">✉️ <span data-i18n="contact.onglet_message">Message</span></button>
-                    <button type="button" class="onglet" data-cible="panneau-demande" role="tab" aria-selected="false">📋 <span data-i18n="contact.onglet_demande">Demande</span></button>
-                    <button type="button" class="onglet" data-cible="panneau-satisfaction" role="tab" aria-selected="false">⭐ <span data-i18n="contact.onglet_satisfaction">Satisfaction</span></button>
-                    <button type="button" class="onglet" data-cible="panneau-eclair" role="tab" aria-selected="false">📊 <span data-i18n="contact.onglet_eclair">Sondage éclair</span></button>
+                <div class="onglets" role="tablist" aria-labelledby="titre-formulaires">
+                    <button type="button" class="onglet active" data-cible="panneau-message" role="tab" aria-selected="true"><span aria-hidden="true">✉️</span> <span data-i18n="contact.onglet_message">Message</span></button>
+                    <button type="button" class="onglet" data-cible="panneau-demande" role="tab" aria-selected="false"><span aria-hidden="true">📋</span> <span data-i18n="contact.onglet_demande">Demande</span></button>
+                    <button type="button" class="onglet" data-cible="panneau-satisfaction" role="tab" aria-selected="false"><span aria-hidden="true">⭐</span> <span data-i18n="contact.onglet_satisfaction">Satisfaction</span></button>
+                    <button type="button" class="onglet" data-cible="panneau-eclair" role="tab" aria-selected="false"><span aria-hidden="true">📊</span> <span data-i18n="contact.onglet_eclair">Sondage éclair</span></button>
                 </div>
 
                 <!-- 1. Message -->
@@ -112,11 +113,11 @@
                         <fieldset>
                             <legend data-i18n="contact.q_note">Comment évaluez-vous votre expérience avec notre organisme ?</legend>
                             <div class="etoiles">
-                                <input type="radio" id="note5" name="note" value="5" required><label for="note5" title="5">★</label>
-                                <input type="radio" id="note4" name="note" value="4"><label for="note4" title="4">★</label>
-                                <input type="radio" id="note3" name="note" value="3"><label for="note3" title="3">★</label>
-                                <input type="radio" id="note2" name="note" value="2"><label for="note2" title="2">★</label>
-                                <input type="radio" id="note1" name="note" value="1"><label for="note1" title="1">★</label>
+                                <input type="radio" id="note5" name="note" value="5" aria-label="5" required><label for="note5" title="5">★</label>
+                                <input type="radio" id="note4" name="note" value="4" aria-label="4"><label for="note4" title="4">★</label>
+                                <input type="radio" id="note3" name="note" value="3" aria-label="3"><label for="note3" title="3">★</label>
+                                <input type="radio" id="note2" name="note" value="2" aria-label="2"><label for="note2" title="2">★</label>
+                                <input type="radio" id="note1" name="note" value="1" aria-label="1"><label for="note1" title="1">★</label>
                             </div>
                         </fieldset>
                         <fieldset>
@@ -164,7 +165,7 @@
                         <button type="submit" class="btn-anime" data-i18n="contact.btn_voter">Voter</button>
                         <div>
                             <strong data-i18n="contact.resultats">Résultats en direct</strong>
-                            <div class="resultats" id="resultats-sondage"></div>
+                            <div class="resultats" id="resultats-sondage" aria-live="polite" aria-atomic="true"></div>
                         </div>
                     </form>
                 </div>

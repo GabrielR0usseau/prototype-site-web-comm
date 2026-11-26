@@ -172,7 +172,13 @@ function appliquerTraductions(racine = document) {
     });
     racine.querySelectorAll('[data-i18n-ph]').forEach(el => {
         const v = chercherTraduction(el.dataset.i18nPh);
-        if (v !== undefined) el.placeholder = v;
+        if (v !== undefined) {
+            el.placeholder = v;
+            if (!el.labels.length && (!el.hasAttribute('aria-label') || el.dataset.ariaLabelFromPlaceholder === 'true')) {
+                el.setAttribute('aria-label', v);
+                el.dataset.ariaLabelFromPlaceholder = 'true';
+            }
+        }
     });
     racine.querySelectorAll('[data-i18n-aria]').forEach(el => {
         const v = chercherTraduction(el.dataset.i18nAria);
@@ -262,10 +268,10 @@ function initLayout(basePath) {
             <div class="header-tools">
                 <select id="lang-select" class="lang-select" data-i18n-aria="langue.choisir">${optionsLangues}</select>
                 <button type="button" id="theme-toggle" class="tool-btn">🌙</button>
-                <button type="button" class="menu-toggle" id="menu-toggle" data-i18n-aria="nav.menu">☰</button>
+                <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="nav-links" aria-expanded="false" data-i18n-aria="nav.menu">☰</button>
             </div>
             <nav id="nav-menu">
-                <ul>
+                <ul id="nav-links">
                     <li><a href="${basePath}/" data-i18n="nav.accueil">Accueil</a></li>
                     <li><a href="${basePath}/simpliquer/" data-i18n="nav.impliquer">S'impliquer</a></li>
                     <li><a href="${basePath}/activites/" data-i18n="nav.activites">Activités</a></li>
@@ -315,7 +321,7 @@ function initLayout(basePath) {
                 <div class="footer-bas">
                     <p>&copy; 2026 Citoyens en action. <span data-i18n="footer.droits">Tous droits réservés.</span></p>
                     <a class="credit-citegab" href="${basePath}/" title="CitéGab">
-                        <img src="${basePath}/assets/citegab.svg" alt="Logo CitéGab" width="30" height="30">
+                        <img src="${basePath}/assets/citegab.svg" alt="" width="30" height="30">
                         <span><span data-i18n="footer.realise">Site réalisé par</span> <strong>CitéGab</strong></span>
                     </a>
                 </div>
@@ -341,7 +347,10 @@ function initLayout(basePath) {
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.querySelector('#nav-menu ul');
     if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+        menuToggle.addEventListener('click', () => {
+            const ouvert = navMenu.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', String(ouvert));
+        });
     }
 
     // Thème
@@ -482,18 +491,48 @@ function initFormulaires() {
     document.querySelectorAll('.onglets').forEach(groupe => {
         const onglets = groupe.querySelectorAll('.onglet');
         onglets.forEach(onglet => {
+            const panneau = document.getElementById(onglet.dataset.cible);
+            if (panneau) {
+                onglet.id = `onglet-${panneau.id}`;
+                onglet.setAttribute('aria-controls', panneau.id);
+                panneau.setAttribute('aria-labelledby', onglet.id);
+                panneau.tabIndex = 0;
+                panneau.hidden = !onglet.classList.contains('active');
+            }
+            onglet.tabIndex = onglet.getAttribute('aria-selected') === 'true' ? 0 : -1;
             onglet.addEventListener('click', () => {
                 onglets.forEach(o => {
                     o.classList.remove('active');
                     o.setAttribute('aria-selected', 'false');
+                    o.tabIndex = -1;
                     const p = document.getElementById(o.dataset.cible);
-                    if (p) p.classList.remove('active');
+                    if (p) {
+                        p.classList.remove('active');
+                        p.hidden = true;
+                    }
                 });
                 onglet.classList.add('active');
                 onglet.setAttribute('aria-selected', 'true');
-                const panneau = document.getElementById(onglet.dataset.cible);
-                if (panneau) panneau.classList.add('active');
+                onglet.tabIndex = 0;
+                if (panneau) {
+                    panneau.classList.add('active');
+                    panneau.hidden = false;
+                }
                 groupe.dispatchEvent(new CustomEvent('onglet', { detail: onglet.dataset.cible }));
+            });
+            onglet.addEventListener('keydown', event => {
+                const index = Array.from(onglets).indexOf(onglet);
+                let suivant = index;
+                const direction = document.documentElement.dir === 'rtl' ? -1 : 1;
+                if (event.key === 'ArrowRight') suivant = (index + direction + onglets.length) % onglets.length;
+                else if (event.key === 'ArrowLeft') suivant = (index - direction + onglets.length) % onglets.length;
+                else if (event.key === 'Home') suivant = 0;
+                else if (event.key === 'End') suivant = onglets.length - 1;
+                else return;
+
+                event.preventDefault();
+                onglets[suivant].focus();
+                onglets[suivant].click();
             });
         });
     });

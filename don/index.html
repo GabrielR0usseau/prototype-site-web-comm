@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
+    <a class="skip-link" href="#contenu-principal" data-i18n="nav.skip">Aller au contenu principal</a>
     <div id="header-container"></div>
 
-    <main>
+    <main id="contenu-principal" tabindex="-1">
         <section class="hero page-don-section">
             <div class="don-layout">
 
@@ -55,12 +56,12 @@
 
                 <!-- Colonne droite : formulaire de don -->
                 <div class="glass-form-container">
-                    <h3 data-i18n="don.form_titre">Faire un don en ligne</h3>
+                    <h3 id="titre-formulaire-don" data-i18n="don.form_titre">Faire un don en ligne</h3>
                     <p class="sous-titre" data-i18n="don.form_texte">Rapide, simple et sécurisé.</p>
                     <div class="note-demo" data-i18n="don.demo">⚠️ Mode démonstration : aucun paiement réel n'est effectué.</div>
 
                     <form id="form-don-cool" class="form-nu" novalidate>
-                        <label class="etape" data-i18n="don.etape1">1. Choisissez votre montant</label>
+                        <p class="etape" data-i18n="don.etape1">1. Choisissez votre montant</p>
                         <div class="amount-selector" id="amount-selector">
                             <button type="button" class="amount-btn-cool" data-montant="20">20 $</button>
                             <button type="button" class="amount-btn-cool active" data-montant="50">50 $</button>
@@ -70,11 +71,11 @@
                             </div>
                         </div>
 
-                        <label class="etape" data-i18n="don.etape2">2. Choisissez votre mode de paiement</label>
-                        <div class="onglets" role="tablist">
-                            <button type="button" class="onglet active" data-cible="paiement-carte" data-mode="carte" role="tab" aria-selected="true">💳 <span data-i18n="don.mode_carte">Carte de crédit</span></button>
-                            <button type="button" class="onglet" data-cible="paiement-paypal" data-mode="paypal" role="tab" aria-selected="false">🅿️ PayPal</button>
-                            <button type="button" class="onglet" data-cible="paiement-cheque" data-mode="cheque" role="tab" aria-selected="false">🧾 <span data-i18n="don.mode_cheque">Chèque</span></button>
+                        <p class="etape" data-i18n="don.etape2">2. Choisissez votre mode de paiement</p>
+                        <div class="onglets" role="tablist" aria-labelledby="titre-formulaire-don">
+                            <button type="button" class="onglet active" data-cible="paiement-carte" data-mode="carte" role="tab" aria-selected="true"><span aria-hidden="true">💳</span> <span data-i18n="don.mode_carte">Carte de crédit</span></button>
+                            <button type="button" class="onglet" data-cible="paiement-paypal" data-mode="paypal" role="tab" aria-selected="false"><span aria-hidden="true">🅿️</span> PayPal</button>
+                            <button type="button" class="onglet" data-cible="paiement-cheque" data-mode="cheque" role="tab" aria-selected="false"><span aria-hidden="true">🧾</span> <span data-i18n="don.mode_cheque">Chèque</span></button>
                         </div>
 
                         <!-- Carte de crédit -->
@@ -91,7 +92,7 @@
                                     <input type="text" id="expiration-carte" data-requis="carte" maxlength="5" autocomplete="off" placeholder="MM/AA" data-i18n-ph="don.expiration">
                                 </div>
                                 <div class="input-group-cool">
-                                    <input type="text" data-requis="carte" maxlength="4" inputmode="numeric" autocomplete="off" placeholder="CVC">
+                                    <input type="text" data-requis="carte" maxlength="4" inputmode="numeric" autocomplete="off" placeholder="CVC" data-i18n-aria="don.cvc">
                                 </div>
                             </div>
                         </div>

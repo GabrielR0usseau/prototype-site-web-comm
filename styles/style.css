@@ -97,6 +97,33 @@ body {
 
 a { color: var(--primary); }
 
+.skip-link {
+    position: absolute;
+    inset-inline-start: 1rem;
+    top: 1rem;
+    z-index: 2001;
+    padding: 0.75rem 1rem;
+    color: var(--on-primary);
+    background: var(--primary-dark);
+    border-radius: var(--radius-sm);
+    transform: translateY(-200%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+main,
+[id^="panneau-"],
+[id^="paiement-"] {
+    scroll-margin-top: 6rem;
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
 /* En-tête (Header) */
 header {
     background: var(--header-bg);
@@ -395,7 +422,6 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 input:focus, textarea:focus, select:focus {
-    outline: none;
     border-color: var(--primary);
     background-color: var(--bg-surface);
     box-shadow: 0 0 0 4px var(--primary-soft);
@@ -717,6 +743,7 @@ legend { font-weight: 700; color: var(--text-heading); margin-bottom: 0.6rem; }
 }
 
 .panneau { display: none; }
+.panneau[hidden] { display: none !important; }
 .panneau.active { display: block; animation: apparait 0.35s ease; }
 
 @keyframes apparait { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -782,7 +809,22 @@ html[data-theme="dark"] .paypal-logo .pp1 { color: #8fa9e8; }
 .resultat-ligne .barre-remplissage::after { display: none; }
 
 .etoiles { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 0.25rem; }
-.etoiles input { display: none; }
+.etoiles input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.etoiles input:focus-visible + label {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
 .etoiles label { font-size: 2rem; color: var(--border-strong); cursor: pointer; transition: color 0.2s; }
 .etoiles input:checked ~ label, .etoiles label:hover, .etoiles label:hover ~ label { color: var(--accent); }
 
@@ -1156,6 +1198,17 @@ td select { min-width: 150px; padding: 0.45rem 0.6rem; }
 }
 
 .toast.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
 
 /* ---------------------------------------------------
    MENU MOBILE & ADAPTABILITÉ

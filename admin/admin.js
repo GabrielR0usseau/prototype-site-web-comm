@@ -172,7 +172,7 @@ function htmlCalendrier() {
         <div class="admin-panneau">
             <h3>${t('admin.cal_titre')}</h3>
             <div class="table-wrap"><table>
-                <thead><tr><th>${t('admin.col_date')}</th><th>${t('admin.col_titre')}</th><th>${t('admin.col_lieu')}</th><th>${t('admin.col_actions')}</th></tr></thead>
+                <thead><tr><th scope="col">${t('admin.col_date')}</th><th scope="col">${t('admin.col_titre')}</th><th scope="col">${t('admin.col_lieu')}</th><th scope="col">${t('admin.col_actions')}</th></tr></thead>
                 <tbody>${lignes || `<tr><td colspan="4" class="vide">${t('act.aucun')}</td></tr>`}</tbody>
             </table></div>
         </div>
@@ -263,7 +263,7 @@ function htmlTemoignages() {
 /* ---------- Réponses aux formulaires et sondages ---------- */
 function tableReponses(liste, colonnes) {
     if (!liste.length) return `<p class="vide">${t('admin.aucune_reponse')}</p>`;
-    const entete = colonnes.map(c => `<th>${t(c.titre)}</th>`).join('');
+    const entete = colonnes.map(c => `<th scope="col">${t(c.titre)}</th>`).join('');
     const lignes = liste.slice().reverse().map(r => '<tr>' + colonnes.map(c => {
         let v = r[c.champ];
         if (c.champ === 'date_envoi') v = dateCourte(v);
@@ -344,7 +344,7 @@ function htmlEquipe(u) {
             <td>${e.id === u.id ? '' : `<button type="button" class="btn btn-sm btn-danger" data-action="supprimer-employe" data-id="${e.id}">${t('admin.supprimer')}</button>`}</td>
         </tr>`).join('');
 
-    const entetePerms = PERMISSIONS.map(p => `<th class="c">${t('perm.' + p)}</th>`).join('');
+    const entetePerms = PERMISSIONS.map(p => `<th scope="col" class="c">${t('perm.' + p)}</th>`).join('');
     const lignesRoles = roles.map(r => {
         const utilise = employes.filter(e => e.role === r.id).length;
         const cases = PERMISSIONS.map(p => `<td class="c"><input type="checkbox" data-action="permission" data-role="${r.id}" data-perm="${p}"
@@ -363,7 +363,7 @@ function htmlEquipe(u) {
         <div class="admin-panneau">
             <h3>${t('admin.employes_titre')}</h3>
             <div class="table-wrap"><table>
-                <thead><tr><th>${t('admin.nom')}</th><th>${t('admin.courriel')}</th><th>${t('admin.col_role')}</th><th>${t('admin.col_actions')}</th></tr></thead>
+                <thead><tr><th scope="col">${t('admin.nom')}</th><th scope="col">${t('admin.courriel')}</th><th scope="col">${t('admin.col_role')}</th><th scope="col">${t('admin.col_actions')}</th></tr></thead>
                 <tbody>${lignesEmployes}</tbody>
             </table></div>
             <form id="form-employe" class="form-admin">
@@ -383,7 +383,7 @@ function htmlEquipe(u) {
             <h3>${t('admin.roles_titre')}</h3>
             <p class="aide-demo">${t('admin.roles_aide')}</p>
             <div class="table-wrap"><table>
-                <thead><tr><th>${t('admin.col_role')}</th>${entetePerms}<th>${t('admin.col_actions')}</th></tr></thead>
+                <thead><tr><th scope="col">${t('admin.col_role')}</th>${entetePerms}<th scope="col">${t('admin.col_actions')}</th></tr></thead>
                 <tbody>${lignesRoles}</tbody>
             </table></div>
             <form id="form-role" class="form-admin">
